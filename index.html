@@ -4,898 +4,831 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sijith — Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="icon" type="image/webp" href="assets/avatar2.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #0a0a0a;
-  --card: #111111;
-  --card2: #161616;
-  --border: #222222;
-  --text: #ffffff;
-  --muted: #888888;
-  --dim: #555555;
-  --accent: #ffffff;
+  --cream: #ECE8E1;
+  --cream-2: #E3DFD7;
+  --paper: #D6D2CA;
+  --ink: #0B0B0B;
+  --black: #0A0A0A;
+  --line: rgba(11,11,11,.18);
+  --line-dark: #232323;
+  --mut: #55524C;
+  --mut-dark: #8F8F8F;
+  --card: #0D0D0D;
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--bg);
-  color: var(--text);
+  background: var(--cream);
+  color: var(--ink);
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
 }
 
-/* ── NAV ── */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
+img { display: block; }
+a { color: inherit; }
+
+/* ── TOP BAR ─────────────────────────────── */
+.topbar {
+  background: #000;
+  color: var(--cream);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.2rem 2.5rem;
-  background: rgba(10,10,10,0.7);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border);
-}
-
-.nav-logo {
-  width: 38px; height: 38px;
-  background: #1a1a1a;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 0.75rem;
-  color: var(--text);
-  letter-spacing: 0.02em;
-  text-decoration: none;
-}
-
-.nav-pill {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  background: #111;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 0.35rem 0.5rem;
-}
-
-.nav-pill a {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 0.78rem;
-  font-weight: 500;
-  padding: 0.4rem 1rem;
-  border-radius: 999px;
-  transition: all 0.2s;
-}
-.nav-pill a:hover, .nav-pill a.active {
-  background: #fff;
-  color: #000;
-}
-
-.nav-cta {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.btn-talk {
-  background: #fff;
-  color: #000;
-  border: none;
-  border-radius: 999px;
-  padding: 0.5rem 1.2rem;
-  font-size: 0.78rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: opacity 0.2s;
-}
-.btn-talk:hover { opacity: 0.85; }
-
-/* ── HERO ── */
-#hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 7rem 2.5rem 4rem;
-  max-width: 1100px;
-  margin: 0 auto;
-  gap: 4rem;
-}
-
-.hero-left { flex: 1; }
-
-.hero-eyebrow {
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: var(--muted);
-  margin-bottom: 1rem;
-  letter-spacing: 0.02em;
-}
-
-.hero-title {
-  font-size: clamp(2.4rem, 5vw, 3.8rem);
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  margin-bottom: 1.2rem;
-}
-
-.hero-desc {
-  font-size: 0.88rem;
-  color: var(--muted);
-  line-height: 1.8;
-  max-width: 420px;
-  margin-bottom: 2.2rem;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 0.8rem;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 2.5rem;
-}
-
-.btn-primary {
-  background: #fff;
-  color: #000;
-  border: none;
-  border-radius: 8px;
-  padding: 0.7rem 1.4rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: opacity 0.2s;
-}
-.btn-primary:hover { opacity: 0.85; }
-
-.btn-ghost {
-  background: transparent;
-  color: var(--muted);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 0.7rem 1.4rem;
-  font-size: 0.82rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-.btn-ghost:hover { color: #fff; border-color: #555; }
-
-.hero-socials {
-  display: flex;
   gap: 1rem;
-}
-.hero-socials a {
-  color: var(--muted);
-  transition: color 0.2s;
-  display: flex;
-  align-items: center;
-}
-.hero-socials a:hover { color: #fff; }
-
-.hero-right {
-  flex-shrink: 0;
-  width: 340px;
-  height: 420px;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-.hero-right::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 80px;
-  background: linear-gradient(to top, #0a0a0a 0%, transparent 100%);
-  z-index: 2;
-  pointer-events: none;
-}
-
-.hero-avatar-placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.8rem;
-  color: var(--dim);
-}
-.hero-avatar-placeholder .icon {
-  width: 64px; height: 64px;
-  border-radius: 50%;
-  background: #1e1e1e;
-  border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.8rem;
-}
-.hero-avatar-placeholder p {
-  font-size: 0.72rem;
-  color: var(--dim);
-  letter-spacing: 0.05em;
-}
-
-.hero-badge {
-  position: absolute;
-  bottom: 1.2rem; left: 1.2rem;
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 8px;
-  padding: 0.5rem 0.8rem;
-  font-size: 0.65rem;
+  padding: .6rem 2.5rem;
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
   font-weight: 600;
-  color: var(--muted);
-  letter-spacing: 0.08em;
+  letter-spacing: .2em;
   text-transform: uppercase;
-  backdrop-filter: blur(8px);
 }
+.topbar-right { display: flex; align-items: center; }
+.topbar-right a { color: var(--cream); text-decoration: none; }
+.topbar-right a:hover { text-decoration: underline; }
+.topbar-right .dot { margin: 0 .9rem; color: #555; }
 
-/* ── SECTION WRAPPER ── */
-.section-wrap {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 5rem 2.5rem;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-.section-header h2 {
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  margin-bottom: 0.6rem;
-}
-.section-header p {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--muted);
-  letter-spacing: 0.02em;
-}
-
-/* ── SERVICES ── */
-#services { background: var(--bg); border-top: 1px solid var(--border); }
-
-.services-grid {
+/* ── NAV ─────────────────────────────────── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--cream);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-
-.service-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 1.8rem 1.5rem;
-  transition: border-color 0.3s, transform 0.3s;
-}
-.service-card:hover {
-  border-color: #444;
-  transform: translateY(-3px);
-}
-.service-card h3 {
-  font-size: 1rem;
-  font-weight: 700;
-  margin-bottom: 0.8rem;
-  line-height: 1.3;
-}
-.service-card p {
-  font-size: 0.75rem;
-  color: var(--muted);
-  line-height: 1.7;
-  margin-bottom: 1.2rem;
-}
-.service-pills {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-.service-pill {
-  background: var(--card2);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 0.45rem 0.8rem;
-  font-size: 0.7rem;
-  color: var(--muted);
-  font-weight: 500;
-}
-
-/* ── ABOUT ── */
-#about { background: var(--bg); border-top: 1px solid var(--border); }
-
-.about-desc {
-  text-align: center;
-  color: var(--muted);
-  font-size: 0.82rem;
-  line-height: 1.9;
-  max-width: 700px;
-  margin: 0 auto 2.5rem;
-}
-
-.approach-title {
-  text-align: center;
-  font-size: 0.95rem;
-  font-weight: 700;
-  margin-bottom: 1.2rem;
-  color: var(--text);
-}
-
-.approach-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-bottom: 3rem;
-}
-.approach-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1rem 1.4rem;
-  display: flex;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 1rem;
-  font-size: 0.8rem;
-  font-weight: 500;
-  transition: border-color 0.2s;
+  padding: .9rem 2.5rem;
+  border-bottom: 1px solid var(--line);
 }
-.approach-card:hover { border-color: #444; }
-.approach-num {
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: var(--muted);
-  background: #1e1e1e;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  width: 32px; height: 32px;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
+.nav-links { display: flex; gap: 1.9rem; }
+.nav-links a {
+  font-family: 'Oswald', sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #141414;
+  text-decoration: none;
+  padding: .35rem 0;
+  border-bottom: 1px solid transparent;
+}
+.nav-links a:hover, .nav-links a.active { border-bottom-color: #0B0B0B; }
+
+.logo { text-align: center; text-decoration: none; line-height: 1; }
+.logo .w {
+  display: block;
+  font-family: 'Anton', sans-serif;
+  font-size: 1.7rem;
+  letter-spacing: .4em;
+  margin-left: .4em;
+  color: var(--ink);
+}
+.logo .s {
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: 7.5px;
+  font-weight: 600;
+  letter-spacing: .62em;
+  margin-left: .62em;
+  margin-top: .3rem;
+  color: #4c4842;
+  text-transform: uppercase;
 }
 
-.about-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  text-align: center;
-  padding: 2rem 0;
-  border-top: 1px solid var(--border);
+.nav-right { display: flex; justify-content: flex-end; align-items: center; gap: 1.5rem; }
+.nav-ic {
+  display: flex; align-items: center; gap: .5rem;
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px; font-weight: 600; letter-spacing: .16em;
+  text-transform: uppercase; color: #141414; text-decoration: none;
 }
-.stat-num {
-  font-size: 2.5rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1;
-  margin-bottom: 0.4rem;
-}
-.stat-lbl {
-  font-size: 0.72rem;
-  color: var(--muted);
-  font-weight: 500;
-}
+.nav-ic:hover { opacity: .65; }
+.nav-ic svg { width: 15px; height: 15px; }
 
-/* ── PROJECTS ── */
-#projects { background: var(--bg); border-top: 1px solid var(--border); }
-
-.projects-grid {
-  display: grid;
-  gap: 1rem;
+/* ── BUTTONS ─────────────────────────────── */
+.btn-solid {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: 'Oswald', sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: .85rem 1.7rem;
+  border: 1px solid var(--ink);
+  transition: background .2s, color .2s;
 }
-
-.project-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 2rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 2rem;
-  transition: border-color 0.3s, transform 0.25s;
-}
-.project-card:hover {
-  border-color: #444;
-  transform: translateY(-2px);
-}
-.project-card.featured { border-color: #2a2a2a; }
-
-.project-dot {
+.btn-solid:hover { background: transparent; color: var(--ink); }
+.btn-line {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  font-size: 0.65rem;
+  gap: .55rem;
+  font-family: 'Oswald', sans-serif;
+  font-size: 10.5px;
   font-weight: 600;
-  color: #4ade80;
-  letter-spacing: 0.1em;
+  letter-spacing: .18em;
   text-transform: uppercase;
-  margin-bottom: 0.7rem;
+  color: var(--ink);
+  text-decoration: none;
+  padding-bottom: .45rem;
+  border-bottom: 1px solid var(--ink);
 }
-.project-dot::before {
-  content: '';
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: #4ade80;
-  animation: blink 2s infinite;
+.btn-line:hover { opacity: .65; }
+.btn-outline {
+  display: inline-block;
+  border: 1px solid #4a4a4a;
+  color: var(--cream);
+  font-family: 'Oswald', sans-serif;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: .62rem 1.15rem;
+  transition: all .2s;
 }
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+.btn-outline:hover { background: var(--cream); color: var(--ink); border-color: var(--cream); }
+
+/* ── HERO ────────────────────────────────── */
+#hero { padding: 3.4rem 2.5rem 3.2rem; background: var(--cream); }
+.hero-eyebrow {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .24em;
+  line-height: 2.15;
+  text-transform: uppercase;
+  color: #141414;
+}
+.hero-eyebrow .rule { width: 26px; height: 2px; background: var(--ink); margin-top: .8rem; }
+
+.hero-stage { position: relative; height: clamp(340px, 52vw, 660px); margin-top: 1.2rem; }
+.hero-word {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(4.8rem, 20.5vw, 19rem);
+  letter-spacing: .04em;
+  line-height: 1;
+  color: var(--ink);
+  user-select: none;
+}
+.hero-figure {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -54%);
+  height: 116%;
+  z-index: 2;
+  filter: contrast(1.05) brightness(.98);
+  pointer-events: none;
+}
+.hero-shadow {
+  position: absolute;
+  left: 50%; bottom: 1.5%;
+  transform: translateX(-50%);
+  width: min(26vw, 320px); height: 26px;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,.32), transparent 70%);
+  filter: blur(6px);
+  z-index: 1;
 }
 
-.project-name {
-  font-size: 1.15rem;
-  font-weight: 700;
-  margin-bottom: 0.6rem;
-  letter-spacing: -0.01em;
-}
-.project-desc {
-  font-size: 0.77rem;
-  color: var(--muted);
-  line-height: 1.8;
-  margin-bottom: 1.2rem;
-  max-width: 580px;
-}
-.project-tags {
+.hero-bottom {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  align-items: flex-end;
+  gap: 3rem;
+  margin-top: 2.4rem;
 }
-.p-tag {
-  background: #1c1c1c;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 0.3rem 0.7rem;
-  font-size: 0.65rem;
-  font-weight: 500;
-  color: var(--muted);
+.hero-actions { display: flex; align-items: center; gap: 1.8rem; flex-shrink: 0; }
+.hero-desc {
+  flex: 1;
+  max-width: 460px;
+  font-size: 11.5px;
+  line-height: 1.9;
+  color: var(--mut);
+  margin: 0 auto;
 }
-.project-link {
-  color: var(--muted);
+.hero-meta {
+  flex-shrink: 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .24em;
+  line-height: 2;
+  text-transform: uppercase;
+}
+.hero-meta .rule { width: 26px; height: 1px; background: var(--ink); margin-top: .5rem; }
+
+/* ── SERVICES STRIP (black) ──────────────── */
+.strip { background: var(--black); display: grid; grid-template-columns: repeat(5, 1fr); }
+.strip-col { display: flex; flex-direction: column; border-right: 1px solid #1d1d1d; }
+.strip-col:last-child { border-right: none; }
+.strip-body { padding: 2.3rem 1.5rem 1.7rem; flex: 1; }
+.strip-body svg { width: 26px; height: 26px; stroke: var(--cream); }
+.strip-body h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #F2EFE8;
+  margin: 1rem 0 .6rem;
+}
+.strip-body p { font-size: 10.5px; line-height: 1.75; color: var(--mut-dark); }
+.strip-pills {
+  margin-top: 1rem;
+  font-family: 'Oswald', sans-serif;
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #6e6e6e;
+  line-height: 1.9;
+}
+.strip-photo { position: relative; height: 150px; background: url('assets/noir-city.jpg') 0 50% / 500% auto no-repeat; }
+.strip-col:nth-child(2) .strip-photo { background-position: 25% 50%; }
+.strip-col:nth-child(3) .strip-photo { background-position: 50% 50%; }
+.strip-col:nth-child(4) .strip-photo { background-position: 75% 50%; }
+.strip-col:nth-child(5) .strip-photo { background-position: 100% 50%; }
+.strip-photo::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, var(--black) 0%, rgba(10,10,10,.35) 55%, rgba(10,10,10,.05) 100%);
+}
+
+/* ── STORY / ABOUT ───────────────────────── */
+.story {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  background: linear-gradient(115deg, #DEDAD2 0%, #CFCBC3 65%, #C2BEB6 100%);
+  overflow: hidden;
+}
+.story-left { padding: 5.2rem 4rem 4.8rem; }
+.eyebrow {
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: #3a3731;
+  margin-bottom: 1.7rem;
+}
+.story h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(2.7rem, 5vw, 4.7rem);
+  line-height: 1.05;
+  letter-spacing: .01em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.story-desc {
+  margin: 1.7rem 0 2.1rem;
+  max-width: 380px;
+  font-size: 11.5px;
+  line-height: 1.9;
+  color: var(--mut);
+}
+.approach { border-top: 1px solid rgba(11,11,11,.3); margin-bottom: 2rem; max-width: 420px; }
+.approach-row {
+  display: flex; gap: 1.1rem; align-items: baseline;
+  padding: .72rem 0;
+  border-bottom: 1px solid rgba(11,11,11,.15);
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px; font-weight: 600; letter-spacing: .14em;
+  text-transform: uppercase; color: #161616;
+}
+.approach-row .num { color: #8a857b; font-size: 10px; }
+.stats { display: flex; gap: 2.8rem; margin-bottom: 2.4rem; }
+.stat b { display: block; font-family: 'Anton', sans-serif; font-size: 1.7rem; font-weight: 400; color: var(--ink); }
+.stat span {
+  font-family: 'Oswald', sans-serif;
+  font-size: 8.5px; font-weight: 600; letter-spacing: .2em;
+  text-transform: uppercase; color: #66625a;
+}
+.story-photo {
+  position: relative;
+  min-height: 620px;
+  background: radial-gradient(120% 90% at 68% 18%, #EAE6DF 0%, #BAB6AE 68%, #A6A29B 100%);
+}
+.story-photo img {
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  height: 90%;
+  filter: contrast(1.06) brightness(.97);
+}
+
+/* ── SKILLS / PERKS STRIP ────────────────── */
+.perks {
+  background: var(--cream);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 3.6rem 2.5rem;
+}
+.perk { padding: .4rem 1.7rem; border-left: 1px solid var(--line); }
+.perk:first-child { border-left: none; padding-left: .2rem; }
+.perk svg { width: 24px; height: 24px; stroke: #141414; }
+.perk h4 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 10.5px; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: #141414;
+  margin: .9rem 0 .5rem;
+}
+.perk p { font-size: 10px; line-height: 1.85; color: #6b675f; }
+
+/* ── PROJECTS / EDITIONS ─────────────────── */
+.editions { background: var(--cream); padding: .6rem 2.5rem 5.2rem; }
+.ed-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.7rem; }
+.ed-head h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 15px; font-weight: 600; letter-spacing: .22em;
+  text-transform: uppercase;
+}
+.ed-head a {
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: #141414; text-decoration: none;
+}
+.ed-head a:hover { text-decoration: underline; }
+.ed-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+.ed-card { background: var(--card); display: flex; flex-direction: column; }
+.ed-photo { position: relative; aspect-ratio: 16 / 10; overflow: hidden; }
+.ed-photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.06); }
+.badge {
+  position: absolute; top: 0; left: 0;
+  background: var(--cream); color: var(--ink);
+  font-family: 'Oswald', sans-serif;
+  font-size: 8.5px; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase;
+  padding: .5rem .75rem;
+}
+.chip {
+  position: absolute; top: .7rem; right: .7rem;
+  background: rgba(0,0,0,.55);
+  border: 1px solid rgba(236,232,225,.35);
+  color: var(--cream);
+  font-family: 'Oswald', sans-serif;
+  font-size: 8.5px; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase;
+  padding: .32rem .55rem;
+}
+.ed-body { padding: 1.45rem 1.45rem 1.25rem; display: flex; flex-direction: column; flex: 1; }
+.ed-body h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 12.5px; font-weight: 600; letter-spacing: .16em;
+  text-transform: uppercase; color: #F2EFE8;
+}
+.ed-desc { font-size: 10.5px; line-height: 1.78; color: var(--mut-dark); margin: .75rem 0 1rem; }
+.ed-tags { border-top: 1px solid var(--line-dark); }
+.ed-tags span {
+  display: block;
+  border-bottom: 1px solid var(--line-dark);
+  font-size: 10px; font-weight: 500; color: #B9B5AC;
+  padding: .52rem 0;
+}
+.ed-foot { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1.15rem; }
+.ed-status { font-family: 'Anton', sans-serif; font-size: 1.05rem; letter-spacing: .05em; color: var(--cream); }
+
+/* ── CONTACT ─────────────────────────────── */
+#contact { background: var(--black); color: var(--cream); padding: 5rem 2.5rem 4.6rem; }
+#contact h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(2.2rem, 4.4vw, 3.5rem);
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+.contact-desc { max-width: 540px; font-size: 11.5px; line-height: 1.9; color: var(--mut-dark); margin: 1.1rem 0 2.5rem; }
+.contact-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; max-width: 920px; }
+.cc {
+  display: flex; justify-content: space-between; align-items: center;
+  background: #121212; border: 1px solid #262626;
+  padding: 1.15rem 1.3rem;
   text-decoration: none;
-  font-size: 0.72rem;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  white-space: nowrap;
-  transition: color 0.2s;
+  transition: border-color .2s;
+}
+.cc:hover { border-color: #4a4a4a; }
+.cc-left { display: flex; align-items: center; gap: .95rem; }
+.cc-ic {
+  width: 38px; height: 38px;
+  border: 1px solid #333;
+  display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
-.project-link:hover { color: #fff; }
+.cc-ic svg { width: 15px; height: 15px; fill: var(--cream); }
+.cc-lbl {
+  font-family: 'Oswald', sans-serif;
+  font-size: 9px; font-weight: 600; letter-spacing: .2em;
+  text-transform: uppercase; color: #7c7c7c;
+}
+.cc-val {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11.5px; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--cream);
+  margin-top: .3rem;
+}
+.cc-arrow { width: 16px; height: 16px; stroke: #8a8a8a; }
 
-/* ── CONTACT ── */
-#contact { background: var(--bg); border-top: 1px solid var(--border); }
-
-.contact-desc {
-  text-align: center;
-  color: var(--muted);
-  font-size: 0.82rem;
-  line-height: 1.9;
-  max-width: 500px;
-  margin: 0 auto 2.5rem;
+/* ── FOOTER ──────────────────────────────── */
+footer { background: #050505; border-top: 1px solid #1b1b1b; padding: 3.6rem 2.5rem 0; color: #9a9a9a; }
+.f-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 2.6rem; padding-bottom: 3rem; }
+.f-avatar { width: 46px; height: 46px; border-radius: 50%; border: 1px solid #333; object-fit: cover; object-position: top center; }
+.f-word {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.5rem; letter-spacing: .4em;
+  color: var(--cream);
+  margin-top: 1.1rem;
 }
-
-.contact-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 600px;
-  margin: 0 auto;
+.f-sub {
+  font-family: 'Oswald', sans-serif;
+  font-size: 7.5px; font-weight: 600; letter-spacing: .6em;
+  color: #6e6e6e; text-transform: uppercase;
+  margin: .35rem 0 1.1rem;
 }
-.contact-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 1.4rem 1.8rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-decoration: none;
-  transition: border-color 0.25s, transform 0.25s;
-}
-.contact-card:hover {
-  border-color: #444;
-  transform: translateX(4px);
-}
-.contact-card-left {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-.contact-icon {
-  width: 42px; height: 42px;
-  background: #1e1e1e;
-  border: 1px solid var(--border);
-  border-radius: 10px;
+.f-brand p { font-size: 10.5px; line-height: 1.85; color: #7c7c7c; max-width: 270px; margin-bottom: 1.3rem; }
+.f-socials { display: flex; gap: .6rem; }
+.f-socials a {
+  width: 34px; height: 34px;
+  border: 1px solid #2e2e2e;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem;
+  color: #c9c9c9; text-decoration: none;
+  transition: all .2s;
 }
-.contact-lbl {
-  font-size: 0.65rem;
-  font-weight: 500;
-  color: var(--dim);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 0.2rem;
+.f-socials a:hover { background: var(--cream); color: var(--ink); border-color: var(--cream); }
+.f-socials svg { width: 14px; height: 14px; }
+.f-col h5 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 9.5px; font-weight: 600; letter-spacing: .24em;
+  text-transform: uppercase; color: #6e6e6e;
+  margin-bottom: 1.1rem;
 }
-.contact-val {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text);
-}
-.contact-arrow { color: var(--dim); transition: color 0.2s, transform 0.2s; }
-.contact-card:hover .contact-arrow { color: #fff; transform: translate(3px,-3px); }
-
-/* ── SKILLS ── */
-#skills { background: var(--bg); border-top: 1px solid var(--border); }
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-}
-.skill-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 1.6rem 1.4rem;
-  transition: border-color 0.2s;
-}
-.skill-card:hover { border-color: #444; }
-.skill-card h4 {
-  font-size: 0.85rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-.skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.s-tag {
-  background: #1c1c1c;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 0.3rem 0.7rem;
-  font-size: 0.67rem;
-  color: var(--muted);
-  font-weight: 500;
+.f-col a { display: block; font-size: 10.5px; line-height: 2.35; color: #9a9a9a; text-decoration: none; }
+.f-col a:hover { color: #fff; }
+.f-bottom {
+  border-top: 1px solid #161616;
+  display: flex; justify-content: space-between; gap: 1rem;
+  padding: 1.15rem 0 1.3rem;
+  font-family: 'Oswald', sans-serif;
+  font-size: 9.5px; font-weight: 500; letter-spacing: .18em;
+  text-transform: uppercase; color: #5f5f5f;
 }
 
-/* ── FOOTER ── */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 1.8rem 2.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-footer p {
-  font-size: 0.72rem;
-  color: var(--dim);
-}
-footer span { color: #fff; }
+/* ── ANIMATIONS ──────────────────────────── */
+.fade-up { opacity: 0; transform: translateY(26px); transition: opacity .8s ease, transform .8s ease; }
+.fade-up.visible { opacity: 1; transform: none; }
 
-/* ── FADE IN ── */
-.fade-up {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+/* ── RESPONSIVE ──────────────────────────── */
+@media (max-width: 1200px) {
+  .strip { grid-template-columns: repeat(3, 1fr); }
+  .strip-col { border-bottom: 1px solid #1d1d1d; }
+  .perks { grid-template-columns: repeat(3, 1fr); row-gap: 2.6rem; }
+  .perk:nth-child(4) { border-left: none; padding-left: .2rem; }
+  .ed-grid { grid-template-columns: repeat(2, 1fr); }
+  .story { grid-template-columns: 1fr; }
+  .story-photo { min-height: 520px; }
+  .f-grid { grid-template-columns: 1fr 1fr; }
 }
-.fade-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-  #hero { flex-direction: column; padding-top: 6rem; }
-  .hero-right { width: 100%; height: 340px; }
-  .services-grid, .skills-grid { grid-template-columns: 1fr 1fr; }
-  .approach-grid { grid-template-columns: 1fr; }
-  nav { padding: 1rem 1.2rem; }
-  .nav-pill { display: none; }
-}
-@media (max-width: 600px) {
-  .services-grid, .skills-grid { grid-template-columns: 1fr; }
-  .about-stats { grid-template-columns: 1fr; gap: 1.5rem; }
-  .project-card { flex-direction: column; }
-  footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+@media (max-width: 860px) {
+  .topbar { padding: .6rem 1.4rem; }
+  .topbar-right a:nth-child(3), .topbar-right .dot:nth-of-type(2) { display: none; }
+  nav { padding: .8rem 1.4rem; }
+  .nav-links { display: none; }
+  .nav-ic span { display: none; }
+  #hero { padding: 2.6rem 1.4rem 2.6rem; }
+  .hero-bottom { flex-direction: column; align-items: flex-start; gap: 1.8rem; }
+  .hero-desc { margin: 0; }
+  .strip { grid-template-columns: 1fr; }
+  .perks { grid-template-columns: 1fr; padding: 3rem 1.4rem; }
+  .perk { border-left: none; padding: 0 0 0 .2rem; }
+  .story-left { padding: 3.6rem 1.4rem; }
+  .editions { padding: .6rem 1.4rem 4rem; }
+  .ed-grid { grid-template-columns: 1fr; }
+  #contact { padding: 4rem 1.4rem; }
+  .contact-cards { grid-template-columns: 1fr; }
+  footer { padding: 3rem 1.4rem 0; }
+  .f-grid { grid-template-columns: 1fr; gap: 2.2rem; }
+  .f-bottom { flex-direction: column; gap: .4rem; }
 }
 </style>
 </head>
 <body>
 
+<!-- TOP BAR -->
+<div class="topbar">
+  <div>Join the community. Build in public.</div>
+  <div class="topbar-right">
+    <a href="https://t.me/TeamLoxxd" target="_blank">Join Loxxd ↗</a><span class="dot">•</span>
+    <a href="https://telegram.me/Loxxd_TG" target="_blank">@Loxxd_TG</a><span class="dot">•</span>
+    <a href="https://github.com/teamloxxd" target="_blank">GitHub ↗</a>
+  </div>
+</div>
+
 <!-- NAV -->
 <nav>
-  <a href="https://telegram.me/Loxxd_TG" target="_blank" class="nav-logo" style="width:38px;height:38px;border-radius:50%;overflow:hidden;padding:0;border:1px solid #333;">
-  <img src="assets/avatar.webp" alt="Sijith" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;" />
-</a>
-  <div class="nav-pill">
+  <div class="nav-links">
     <a href="#hero" class="active">Home</a>
     <a href="#services">Services</a>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
   </div>
-  <div class="nav-cta">
-    <a href="https://telegram.me/Loxxd_TG" target="_blank" class="btn-talk">Let's Talk</a>
+  <a href="#hero" class="logo" aria-label="Sijith — home">
+    <span class="w">SIJITH</span>
+    <span class="s">The Vibecoder</span>
+  </a>
+  <div class="nav-right">
+    <a class="nav-ic" href="https://github.com/teamloxxd" target="_blank" title="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.23.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.32-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      <span>GitHub</span>
+    </a>
+    <a class="nav-ic" href="https://t.me/TeamLoxxd" target="_blank" title="Telegram">
+      <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg>
+      <span>Telegram</span>
+    </a>
+    <a href="#contact" class="btn-solid" style="padding:.6rem 1.2rem;">Let's Talk</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-left">
-    <p class="hero-eyebrow">I am Sijith</p>
-    <h1 class="hero-title">Beginner Vibecoder<br>&amp; Community Builder</h1>
-    <p class="hero-desc">Building in public. Learning by shipping. Creator of Loxxd community, Telegram bot developer, and trusted VPS seller &amp; middleman.</p>
-    <div class="hero-actions">
-      <a href="#projects" class="btn-primary">View Projects</a>
-      <a href="#contact" class="btn-ghost">Get In Touch</a>
-    </div>
-    <div class="hero-socials">
-      <!-- Telegram icon -->
-      <a href="https://t.me/TeamLoxxd" target="_blank" title="Telegram">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg>
-      </a>
-      <!-- GitHub icon -->
-      <a href="https://github.com/teamloxxd" target="_blank" title="GitHub">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-      </a>
-    </div>
+  <div class="hero-eyebrow fade-up">
+    I am Sijith<br>
+    Beginner Vibecoder &amp;<br>
+    Community Builder.
+    <div class="rule"></div>
   </div>
-  <div class="hero-right">
-    <img src="assets/hero.webp" alt="Vibecoder" style="width:100%;height:100%;object-fit:cover;object-position:top center;position:absolute;inset:0;z-index:1;mix-blend-mode:normal;filter:contrast(1.05) brightness(0.95);" />
-    <div class="hero-badge" style="z-index:3;">✦ Sijith</div>
+
+  <div class="hero-stage">
+    <h1 class="hero-word">SIJITH</h1>
+    <div class="hero-shadow"></div>
+    <img class="hero-figure" src="assets/hero-cutout.webp" alt="Sijith — beginner vibecoder and community builder">
+  </div>
+
+  <div class="hero-bottom fade-up">
+    <div class="hero-actions">
+      <a href="#projects" class="btn-solid">View Projects</a>
+      <a href="#contact" class="btn-line">Get In Touch ▶</a>
+    </div>
+    <p class="hero-desc">Building in public. Learning by shipping. Creator of Loxxd community, Telegram bot developer, and trusted VPS seller &amp; middleman.</p>
+    <div class="hero-meta">New Vibes<br>2026<div class="rule"></div></div>
   </div>
 </section>
 
 <!-- SERVICES -->
-<div id="services">
-  <div class="section-wrap">
-    <div class="section-header fade-up">
-      <h2>Services</h2>
-      <p>What I build and where I add value</p>
+<div id="services" class="strip">
+  <div class="strip-col fade-up">
+    <div class="strip-body">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <h3>Community Building</h3>
+      <p>Creating and growing Telegram communities where builders connect, share wins, and help each other grow.</p>
+      <div class="strip-pills">Telegram groups · Community management</div>
     </div>
-    <div class="services-grid fade-up">
-      <div class="service-card">
-        <h3>Community Building</h3>
-        <p>Creating and growing Telegram communities where builders connect, share wins, and help each other grow.</p>
-        <div class="service-pills">
-          <div class="service-pill">Telegram groups</div>
-          <div class="service-pill">Community management</div>
-        </div>
-      </div>
-      <div class="service-card">
-        <h3>Vibe Coding</h3>
-        <p>Building small projects, tools, and experiments using HTML, CSS, JS — shipping fast and learning faster.</p>
-        <div class="service-pills">
-          <div class="service-pill">HTML / CSS</div>
-          <div class="service-pill">JavaScript</div>
-        </div>
-      </div>
-      <div class="service-card">
-        <h3>Building in Public</h3>
-        <p>Sharing the journey openly — the wins, the bugs, the lessons. Inspiring others to start before they're ready.</p>
-        <div class="service-pills">
-          <div class="service-pill">Progress updates</div>
-          <div class="service-pill">Accountability</div>
-        </div>
-      </div>
-      <div class="service-card">
-        <h3>Collab &amp; Network</h3>
-        <p>Connecting with other beginners and builders to learn together, share resources, and grow faster as a team.</p>
-        <div class="service-pills">
-          <div class="service-pill">Peer learning</div>
-          <div class="service-pill">Networking</div>
-        </div>
-      </div>
-      <div class="service-card">
-        <h3>VPS Seller &amp; Middleman</h3>
-        <p>Trusted middleman for VPS deals. I help buyers and sellers connect safely, ensuring smooth and secure transactions for virtual private servers.</p>
-        <div class="service-pills">
-          <div class="service-pill">VPS Sales</div>
-          <div class="service-pill">Trusted Middleman</div>
-          <div class="service-pill">Secure Deals</div>
-        </div>
-      </div>
+    <div class="strip-photo"></div>
+  </div>
+  <div class="strip-col fade-up">
+    <div class="strip-body">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      <h3>Vibe Coding</h3>
+      <p>Building small projects, tools, and experiments using HTML, CSS, JS — shipping fast and learning faster.</p>
+      <div class="strip-pills">HTML / CSS · JavaScript</div>
     </div>
+    <div class="strip-photo"></div>
+  </div>
+  <div class="strip-col fade-up">
+    <div class="strip-body">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      <h3>Building in Public</h3>
+      <p>Sharing the journey openly — the wins, the bugs, the lessons. Inspiring others to start before they're ready.</p>
+      <div class="strip-pills">Progress updates · Accountability</div>
+    </div>
+    <div class="strip-photo"></div>
+  </div>
+  <div class="strip-col fade-up">
+    <div class="strip-body">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M20 8v6"/><path d="M23 11h-6"/></svg>
+      <h3>Collab &amp; Network</h3>
+      <p>Connecting with other beginners and builders to learn together, share resources, and grow faster as a team.</p>
+      <div class="strip-pills">Peer learning · Networking</div>
+    </div>
+    <div class="strip-photo"></div>
+  </div>
+  <div class="strip-col fade-up">
+    <div class="strip-body">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="2" y="2" width="20" height="8" rx="1"/><rect x="2" y="14" width="20" height="8" rx="1"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+      <h3>VPS Seller &amp; Middleman</h3>
+      <p>Trusted middleman for VPS deals. I help buyers and sellers connect safely, ensuring smooth and secure transactions for virtual private servers.</p>
+      <div class="strip-pills">VPS Sales · Trusted Middleman · Secure Deals</div>
+    </div>
+    <div class="strip-photo"></div>
   </div>
 </div>
 
-<!-- ABOUT -->
-<div id="about">
-  <div class="section-wrap">
-    <div class="section-header fade-up">
-      <h2>About Me</h2>
+<!-- ABOUT / STORY -->
+<section id="about" class="story">
+  <div class="story-left">
+    <div class="eyebrow fade-up">The Story</div>
+    <h2 class="fade-up">Ship.<br>Learn.<br>Repeat.</h2>
+    <p class="story-desc fade-up">I'm a beginner vibecoder passionate about building in public and creating communities where people can grow together. I founded Loxxd — a Telegram community for coders, builders, and grinders who aren't afraid to ship imperfect things and learn on the go.</p>
+    <div class="approach fade-up">
+      <div class="approach-row"><span class="num">01</span> Ship fast, learn faster</div>
+      <div class="approach-row"><span class="num">02</span> Build with community</div>
+      <div class="approach-row"><span class="num">03</span> Share everything publicly</div>
     </div>
-    <p class="about-desc fade-up">I'm a beginner vibecoder passionate about building in public and creating communities where people can grow together. I founded Loxxd — a Telegram community for coders, builders, and grinders who aren't afraid to ship imperfect things and learn on the go.</p>
-
-    <div class="approach-title fade-up">My Approach</div>
-    <div class="approach-grid fade-up">
-      <div class="approach-card"><div class="approach-num">01</div> Ship fast, learn faster</div>
-      <div class="approach-card"><div class="approach-num">02</div> Build with community</div>
-      <div class="approach-card"><div class="approach-num">03</div> Share everything publicly</div>
+    <div class="stats fade-up">
+      <div class="stat"><b>1+</b><span>Community Built</span></div>
+      <div class="stat"><b>∞</b><span>Bugs Survived</span></div>
+      <div class="stat"><b>100%</b><span>Vibe Level</span></div>
     </div>
-
-    <div class="about-stats fade-up">
-      <div>
-        <div class="stat-num">1+</div>
-        <div class="stat-lbl">Community Built</div>
-      </div>
-      <div>
-        <div class="stat-num">∞</div>
-        <div class="stat-lbl">Bugs Survived</div>
-      </div>
-      <div>
-        <div class="stat-num">100%</div>
-        <div class="stat-lbl">Vibe Level</div>
-      </div>
-    </div>
+    <a href="#contact" class="btn-solid fade-up">Let's Connect</a>
   </div>
-</div>
+  <div class="story-photo">
+    <img src="assets/hero-cutout.webp" alt="Portrait of Sijith">
+  </div>
+</section>
 
 <!-- SKILLS -->
-<div id="skills">
-  <div class="section-wrap">
-    <div class="section-header fade-up">
-      <h2>Skills</h2>
-      <p>Tools and abilities I'm building up</p>
-    </div>
-    <div class="skills-grid fade-up">
-      <div class="skill-card">
-        <h4>Core Skills</h4>
-        <div class="skill-tags">
-          <span class="s-tag">Vibe Coding</span>
-          <span class="s-tag">Community Mgmt</span>
-          <span class="s-tag">Building in Public</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <h4>Frontend</h4>
-        <div class="skill-tags">
-          <span class="s-tag">HTML</span>
-          <span class="s-tag">CSS</span>
-          <span class="s-tag">JavaScript</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <h4>Platforms</h4>
-        <div class="skill-tags">
-          <span class="s-tag">Telegram</span>
-          <span class="s-tag">GitHub</span>
-          <span class="s-tag">Claude AI</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <h4>Mindset</h4>
-        <div class="skill-tags">
-          <span class="s-tag">Growth</span>
-          <span class="s-tag">Consistency</span>
-          <span class="s-tag">Shipping</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <h4>Business</h4>
-        <div class="skill-tags">
-          <span class="s-tag">VPS Selling</span>
-          <span class="s-tag">Middleman</span>
-          <span class="s-tag">Trusted Deals</span>
-        </div>
-      </div>
-    </div>
+<div id="skills" class="perks">
+  <div class="perk fade-up">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <h4>Core Skills</h4>
+    <p>Vibe Coding · Community Mgmt · Building in Public</p>
+  </div>
+  <div class="perk fade-up">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+    <h4>Frontend</h4>
+    <p>HTML · CSS · JavaScript</p>
+  </div>
+  <div class="perk fade-up">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    <h4>Platforms</h4>
+    <p>Telegram · GitHub · Claude AI</p>
+  </div>
+  <div class="perk fade-up">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 3v18"/><path d="M3 12h18"/><circle cx="12" cy="12" r="9"/></svg>
+    <h4>Mindset</h4>
+    <p>Growth · Consistency · Shipping</p>
+  </div>
+  <div class="perk fade-up">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+    <h4>Business</h4>
+    <p>VPS Selling · Middleman · Trusted Deals</p>
   </div>
 </div>
 
 <!-- PROJECTS -->
-<div id="projects">
-  <div class="section-wrap">
-    <div class="section-header fade-up">
-      <h2>Projects</h2>
-      <p>What I've shipped so far</p>
+<section id="projects" class="editions">
+  <div class="ed-head fade-up">
+    <h2>What I've Shipped</h2>
+    <a href="https://github.com/teamloxxd" target="_blank">View all on GitHub ↗</a>
+  </div>
+  <div class="ed-grid">
+    <div class="ed-card fade-up">
+      <div class="ed-photo">
+        <img src="assets/proj-loxxd.jpg" alt="Loxxd — Telegram community">
+        <div class="badge">Most Popular</div>
+        <div class="chip">● Active</div>
+      </div>
+      <div class="ed-body">
+        <h3>Loxxd — Telegram Community</h3>
+        <p class="ed-desc">A Telegram community I built for vibecoders, builders, and grinders. A space to share wins, ask questions, and connect with others building in public. No gatekeeping — just people doing cool stuff together.</p>
+        <div class="ed-tags">
+          <span>Community</span>
+          <span>Telegram</span>
+          <span>Networking</span>
+          <span>Building in Public</span>
+        </div>
+        <div class="ed-foot">
+          <div class="ed-status">LIVE</div>
+          <a href="https://t.me/TeamLoxxd" target="_blank" class="btn-outline">Join ↗</a>
+        </div>
+      </div>
     </div>
-    <div class="projects-grid">
-
-      <div class="project-card featured fade-up">
-        <div>
-          <div class="project-dot">Active</div>
-          <div class="project-name">Loxxd — Telegram Community</div>
-          <p class="project-desc">A Telegram community I built for vibecoders, builders, and grinders. A space to share wins, ask questions, and connect with others building in public. No gatekeeping — just people doing cool stuff together.</p>
-          <div class="project-tags">
-            <span class="p-tag">Community</span>
-            <span class="p-tag">Telegram</span>
-            <span class="p-tag">Networking</span>
-            <span class="p-tag">Building in Public</span>
-          </div>
-        </div>
-        <a href="https://t.me/TeamLoxxd" target="_blank" class="project-link">
-          Join ↗
-        </a>
+    <div class="ed-card fade-up">
+      <div class="ed-photo">
+        <img src="assets/proj-filelink.jpg" alt="Telegram File To Link Bot">
       </div>
-
-      <div class="project-card fade-up">
-        <div>
-          <div class="project-name">Telegram File To Link Bot</div>
-          <p class="project-desc">A Telegram bot that converts any file into a direct shareable link instantly. Built for fast file sharing within Telegram without hassle.</p>
-          <div class="project-tags">
-            <span class="p-tag">Telegram Bot</span>
-            <span class="p-tag">Automation</span>
-            <span class="p-tag">File Sharing</span>
-          </div>
+      <div class="ed-body">
+        <h3>Telegram File To Link Bot</h3>
+        <p class="ed-desc">A Telegram bot that converts any file into a direct shareable link instantly. Built for fast file sharing within Telegram without hassle.</p>
+        <div class="ed-tags">
+          <span>Telegram Bot</span>
+          <span>Automation</span>
+          <span>File Sharing</span>
         </div>
-        <a href="https://t.me/Mcfiletolinkrobot" target="_blank" class="project-link">Try it ↗</a>
-      </div>
-
-      <div class="project-card fade-up">
-        <div>
-          <div class="project-dot">Active</div>
-          <div class="project-name">Telegram Auto Rename Bot</div>
-          <p class="project-desc">A Telegram bot that automatically renames files sent to it with custom naming rules. Saves time and keeps your files organized effortlessly.</p>
-          <div class="project-tags">
-            <span class="p-tag">Telegram Bot</span>
-            <span class="p-tag">Automation</span>
-            <span class="p-tag">File Management</span>
-          </div>
+        <div class="ed-foot">
+          <div class="ed-status">SHIPPED</div>
+          <a href="https://t.me/Mcfiletolinkrobot" target="_blank" class="btn-outline">Try it ↗</a>
         </div>
-        <a href="https://t.me/McAutorenamebot" target="_blank" class="project-link">Try it ↗</a>
       </div>
-
+    </div>
+    <div class="ed-card fade-up">
+      <div class="ed-photo">
+        <img src="assets/proj-rename.jpg" alt="Telegram Auto Rename Bot">
+        <div class="chip">● Active</div>
+      </div>
+      <div class="ed-body">
+        <h3>Telegram Auto Rename Bot</h3>
+        <p class="ed-desc">A Telegram bot that automatically renames files sent to it with custom naming rules. Saves time and keeps your files organized effortlessly.</p>
+        <div class="ed-tags">
+          <span>Telegram Bot</span>
+          <span>Automation</span>
+          <span>File Management</span>
+        </div>
+        <div class="ed-foot">
+          <div class="ed-status">LIVE</div>
+          <a href="https://t.me/McAutorenamebot" target="_blank" class="btn-outline">Try it ↗</a>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- CONTACT -->
 <div id="contact">
-  <div class="section-wrap">
-    <div class="section-header fade-up">
-      <h2>Let's Connect</h2>
-    </div>
-    <p class="contact-desc fade-up">Want to join the community, collab on something, or just say what's up? Slide in — I'm always down to connect with fellow builders.</p>
-    <div class="contact-cards fade-up">
-      <a href="https://t.me/TeamLoxxd" target="_blank" class="contact-card">
-        <div class="contact-card-left">
-          <div class="contact-icon">✈️</div>
-          <div>
-            <div class="contact-lbl">Telegram Community</div>
-            <div class="contact-val">@Loxxd_TG</div>
-          </div>
+  <h2 class="fade-up">Let's Connect</h2>
+  <p class="contact-desc fade-up">Want to join the community, collab on something, or just say what's up? Slide in — I'm always down to connect with fellow builders.</p>
+  <div class="contact-cards fade-up">
+    <a href="https://t.me/TeamLoxxd" target="_blank" class="cc">
+      <div class="cc-left">
+        <div class="cc-ic"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg></div>
+        <div>
+          <div class="cc-lbl">Telegram Community</div>
+          <div class="cc-val">@Loxxd_TG</div>
         </div>
-        <svg class="contact-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-      </a>
-      <a href="https://telegram.me/Loxxd_TG" target="_blank" class="contact-card">
-        <div class="contact-card-left">
-          <div class="contact-icon">💬</div>
-          <div>
-            <div class="contact-lbl">Direct Message</div>
-            <div class="contact-val">Message on Telegram</div>
-          </div>
+      </div>
+      <svg class="cc-arrow" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+    </a>
+    <a href="https://telegram.me/Loxxd_TG" target="_blank" class="cc">
+      <div class="cc-left">
+        <div class="cc-ic"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+        <div>
+          <div class="cc-lbl">Direct Message</div>
+          <div class="cc-val">Message on Telegram</div>
         </div>
-        <svg class="contact-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-      </a>
-    </div>
+      </div>
+      <svg class="cc-arrow" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+    </a>
   </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 — <span>Sijith</span> · Built with vibes</p>
-  <p>Loxxd_TG <span>Community</span></p>
+  <div class="f-grid">
+    <div class="f-brand">
+      <img class="f-avatar" src="assets/avatar2.webp" alt="Sijith">
+      <div class="f-word">SIJITH</div>
+      <div class="f-sub">The Vibecoder</div>
+      <p>Beginner vibecoder &amp; community builder. Building in public, shipping with vibes. Creator of Loxxd, Telegram bot developer, trusted VPS seller &amp; middleman.</p>
+      <div class="f-socials">
+        <a href="https://t.me/TeamLoxxd" target="_blank" title="Telegram" aria-label="Telegram — Loxxd community"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg></a>
+        <a href="https://github.com/teamloxxd" target="_blank" title="GitHub" aria-label="GitHub — teamloxxd"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.23.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.32-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+        <a href="https://telegram.me/Loxxd_TG" target="_blank" title="DM" aria-label="Direct message on Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+      </div>
+    </div>
+    <div class="f-col">
+      <h5>Site</h5>
+      <a href="#hero">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+    </div>
+    <div class="f-col">
+      <h5>Projects</h5>
+      <a href="https://t.me/TeamLoxxd" target="_blank">Loxxd Community</a>
+      <a href="https://t.me/Mcfiletolinkrobot" target="_blank">File To Link Bot</a>
+      <a href="https://t.me/McAutorenamebot" target="_blank">Auto Rename Bot</a>
+    </div>
+    <div class="f-col">
+      <h5>Community</h5>
+      <a href="https://t.me/TeamLoxxd" target="_blank">Join Loxxd ↗</a>
+      <a href="https://telegram.me/Loxxd_TG" target="_blank">DM @Loxxd_TG ↗</a>
+      <a href="https://github.com/teamloxxd" target="_blank">GitHub ↗</a>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <div>© 2026 — Sijith · Built with vibes</div>
+    <div>Loxxd_TG Community</div>
+  </div>
 </footer>
 
 <script>
   // Nav active link on scroll
   const sections = document.querySelectorAll('section[id], div[id]');
-  const navLinks = document.querySelectorAll('.nav-pill a');
+  const navLinks = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+      if (window.scrollY >= s.offsetTop - 140) current = s.id;
     });
     navLinks.forEach(a => {
       a.classList.remove('active');
